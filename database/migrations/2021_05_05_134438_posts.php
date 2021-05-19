@@ -15,8 +15,9 @@ class Posts extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('idPost')->unique();
+            $table->bigIncrements('idPost')->unique();
             $table->string('judul');
+            $table->string('banner');
             $table->string('isiPost');
             $table->timestamps();
         });

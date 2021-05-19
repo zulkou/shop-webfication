@@ -15,11 +15,12 @@ class Pesanans extends Migration
     {
         Schema::create('pesanans', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('idPesan')->unique();
-            $table->bigInteger('idBarang');
+            $table->bigIncrements('idPesan')->unique();
+            $table->bigIncrements('idBarang');
             $table->foreign('idBarang')->references('idBarang')->on('barangs');
-            $table->bigInteger('idMember');
+            $table->bigIncrements('idMember');
             $table->foreign('idMember')->references('idMember')->on('memberships');
+            $table->string('status');
             $table->timestamps();
         });
     }

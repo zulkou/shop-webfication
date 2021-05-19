@@ -15,8 +15,9 @@ class Barangs extends Migration
     {
         Schema::create('barangs', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('idBarang')->unique();
+            $table->bigIncrements('idBarang')->unique();
             $table->string('barang');
+            $table->string('fotoBarang');
             $table->integer('harga');
             $table->dateTime('expDate');
             $table->timestamps();
