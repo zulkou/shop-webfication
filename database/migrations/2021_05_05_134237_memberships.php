@@ -15,11 +15,12 @@ class Memberships extends Migration
     {
         Schema::create('memberships', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('idMember')->unique();
+            $table->bigIncrements('idMember')->unique();
             $table->string('nama');
             $table->string('email');
             $table->string('password');
             $table->string('alamat');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
