@@ -54,12 +54,15 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="expDate" class="col-md-4 col-form-label text-md-right">{{ __('Expiration Date') }}</label>
+                            <label for="stok" class="col-md-4 col-form-label text-md-right">{{ __('Ketersediaan') }}</label>
 
                             <div class="col-md-6">
-                                <input id="expDate" type="date" class="form-control @error('expDate') is-invalid @enderror" name="expDate" required autocomplete="expDate">
+                                <select name="stok" id="stok">
+                                    <option value="A">Tersedia</option>
+                                    <option value="O">Habis</option>
+                                </select>
 
-                                @error('expDate')
+                                @error('stok')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

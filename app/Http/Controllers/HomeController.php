@@ -117,7 +117,7 @@ class HomeController extends Controller
             'barang'        => 'required',
             'fotoBarang'    => 'required|file|image',
             'harga'         => 'required',
-            'stok'          => 'required'
+            'stok'          => 'required|in:A,O'
         ]);
 
         Barang::where('idBarang',$barang->idBarang)->update($validateData);
