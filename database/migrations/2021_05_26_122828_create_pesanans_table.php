@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Pesanans extends Migration
+class CreatePesanansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -16,10 +16,10 @@ class Pesanans extends Migration
         Schema::create('pesanans', function (Blueprint $table) {
             $table->id();
             $table->bigIncrements('idPesan')->unique();
-            $table->bigIncrements('idBarang');
-            $table->foreign('idBarang')->references('idBarang')->on('barangs');
-            $table->bigIncrements('idMember');
-            $table->foreign('idMember')->references('idMember')->on('memberships');
+            $table->string('pemesan');
+            $table->string('pesanan');
+            $table->int('harga');
+            $table->string('pengambilan');
             $table->string('status');
             $table->timestamps();
         });

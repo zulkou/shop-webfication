@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Posts extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,7 +17,7 @@ class Posts extends Migration
             $table->id();
             $table->bigIncrements('idPost')->unique();
             $table->string('judul');
-            $table->string('banner');
+            $table->string('banner')->nullable();
             $table->string('isiPost');
             $table->timestamps();
         });
@@ -30,6 +30,6 @@ class Posts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pesanans');
+        Schema::dropIfExists('posts');
     }
 }
