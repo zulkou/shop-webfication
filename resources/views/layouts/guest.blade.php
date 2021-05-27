@@ -83,7 +83,7 @@
         @else
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    Masuk
+                    Log in
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -100,16 +100,10 @@
         <div class="container">
           <ul class="navbar-nav">
             <li class="nav-item active">
-                <a href="{{ route('template') }}" class="nav-link"><i></i><span>Dashboard</span></a>
+                <a href="{{ route('guest') }}" class="nav-link"><i></i><span>Dashboard</span></a>
               </li>
             <li class="nav-item dropdown">
-                <a href="{{ route('barangs') }}" class="nav-link"><i></i><span>Barang</span></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a href="{{ route('pemesan') }}" class="nav-link"><i></i><span>Pemesan</span></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a href="{{ route('membership') }}" class="nav-link"><i></i><span>Membership</span></a>
+                <a href="{{ route('barang') }}" class="nav-link"><i></i><span>Barang</span></a>
             </li>
           </ul>
         </div>

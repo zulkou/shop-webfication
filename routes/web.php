@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
+Route::get('/homes', function () {
     return view('layouts.template');
 })->middleware('auth');
 
@@ -22,10 +22,31 @@ Route::get('/login', function () {
     return view('home');
 })->name('login');
 
+Route::get('/', function () {
+    return view('layouts.guest');
+})->name('guest');
+
+Route::get('barang', function () {
+    return view('layouts.barang');
+})->name('barang');
+
+Route::get('template', function () {
+    return view('layouts.template');
+})->name('template');
+
+Route::get('barangs', function () {
+    return view('content.barangs');
+})->name('barangs');
+
+Route::get('membership', function () {
+    return view('layouts.membership');
+})->name('membership');
+
+Route::get('pemesan', function () {
+    return view('layouts.pemesan');
+})->name('pemesan');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
