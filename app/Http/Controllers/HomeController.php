@@ -37,9 +37,13 @@ class HomeController extends Controller
     // }
 
     //Membership CRUD
+    public function listMember(){
+        $memberships = Membership::all();
+        return view('membership.list',['memberships' => $memberships]);
+    }
     //create form
     public function formMember(){
-        return view('membership.form');
+        return view('forms.membership.form');
     }
     //create validation
     public function addMember(Request $request){
@@ -52,14 +56,15 @@ class HomeController extends Controller
         ]);
 
         Membership::create($validateData);
+        return redirect()->route('membership.list');
     }
     //read
     public function showMember(Membership $membership){
-        return view('membership.show', ['membership' => $membership]);
+        return view('detailed.membership.detail', ['membership' => $membership]);
     }
     //update form
     public function formUpMember(Membership $membership){
-        return view('membership.edit', ['membership' => $membership]);
+        return view('edit.membership.edit', ['membership' => $membership]);
     }
     //update valid
     public function upMember(Request $request, Membership $membership){
@@ -71,17 +76,23 @@ class HomeController extends Controller
             'alamat'    => 'required'
         ]);
 
-        $membership->update($validateData);
+        Membership::where('username',$membership->username)->update($validateData);
+        return redirect()->route('membership.show');
     }
     //delete
     public function delMember(Membership $membership){
         $membership->delete();
+        return redirect()->route('membership.list');
     }
 
     //Barang CRUD
+    public function listBarang(){
+        $barangs = Barang::all();
+        return view('barang.list',['barangs' => $barangs]);
+    }
     //create form
     public function formBarang(){
-        return view('barang.form');
+        return view('forms.barang.form');
     }
     //create valid
     public function addBarang(Request $request){
@@ -101,14 +112,16 @@ class HomeController extends Controller
         $barang->harga = $validateData['harga'];
         $barang->stok = $validateData['stok'];
         $barang->save();
+
+        return redirect()->route('barang.list');
     }
     //read
     public function showBarang(Barang $barang){
-        return view('barang.show', ['barang' => $barang]);
+        return view('detailed.barang.detail', ['barang' => $barang]);
     }
     //update form
     public function formUpBarang(Barang $barang){
-        return view('barang.edit', ['barang' => $barang]);
+        return view('edit.barang.edit', ['barang' => $barang]);
     }
     //update valid
     public function upBarang(Request $request, Barang $barang){
@@ -121,16 +134,22 @@ class HomeController extends Controller
         ]);
 
         Barang::where('idBarang',$barang->idBarang)->update($validateData);
+        return redirect()->route('barang.show');
     }
     //delete
     public function delBarang(Membership $membership){
         $membership->delete();
+        return redirect()->route('barang.list');
     }
 
     //Post CRUD
+    public function listPost(){
+        $posts = Post::all();
+        return view('post.list',['posts' => $posts]);
+    }
     //create form
     public function formPost(){
-        return view('barang.form');
+        return view('forms.post.form');
     }
     //create valid
     public function addPost(Request $request){
@@ -148,13 +167,16 @@ class HomeController extends Controller
         $post->banner = $validateData['banner']->move('upload',$nameFile);
         $post->isiPost = $validateData['isiPost'];
         $post->save();
+
+        return redirect()->route('post.list');
     }
     //read
     public function showPost(Post $post){
-        return view('post.show', ['post' => $post]);
+        return view('detailed.post.detail', ['post' => $post]);
     }
     //delete
     public function delPost(Post $post){
         $post->delete();
+        return redirect()->route('post.list');
     }
 }

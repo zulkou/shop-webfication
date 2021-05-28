@@ -15,10 +15,10 @@ class CreatePesanansTable extends Migration
     {
         Schema::create('pesanans', function (Blueprint $table) {
             $table->id();
-            $table->bigIncrements('idPesan')->unique();
+            $table->bigInteger('idPesan')->unique();
             $table->string('pemesan');
             $table->string('pesanan');
-            $table->int('harga');
+            $table->integer('harga');
             $table->string('pengambilan');
             $table->string('status');
             $table->timestamps();
