@@ -109,7 +109,7 @@
                 <a href="{{ route('pemesan') }}" class="nav-link"><i></i><span>Pemesan</span></a>
             </li>
             <li class="nav-item active">
-                <a href="{{ route('membership') }}" class="nav-link"><i></i><span>Membership</span></a>
+                <a href="/membership" class="nav-link"><i></i><span>Membership</span></a>
             </li>
           </ul>
         </div>

@@ -103,7 +103,7 @@
                 <a href="{{ route('guest') }}" class="nav-link"><i></i><span>Dashboard</span></a>
               </li>
             <li class="nav-item active">
-                <a href="{{ route('barang') }}" class="nav-link"><i></i><span>Barang</span></a>
+                <a href="/barang" class="nav-link"><i></i><span>Barang</span></a>
             </li>
           </ul>
         </div>

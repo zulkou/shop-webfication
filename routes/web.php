@@ -19,6 +19,10 @@ Route::get('/homes', function () {
     return view('layouts.template');
 })->middleware('auth');
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/login', function () {
     return view('home');
 })->name('login');
@@ -91,7 +95,5 @@ Route::get('pemesan', function () {
     return view('layouts.pemesan');
 })->name('pemesan');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
